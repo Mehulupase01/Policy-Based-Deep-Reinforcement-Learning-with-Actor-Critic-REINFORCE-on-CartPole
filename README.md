@@ -1,0 +1,2 @@
+# Policy-Based Deep Reinforcement Learning with Actor-Critic REINFORCE on CartPole
+ This project implements Policy-Based Reinforcement Learning algorithms like REINFORCE and Actor-Critic with bootstrapping, baseline subtraction, and entropy regularization. The environment used is CartPole-v1. The goal is to investigate the effect of entropy on exploration and compare various configurations of the Actor-Critic algorithm to improve stability and performance
