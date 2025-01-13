@@ -1,0 +1,144 @@
+#!/bin/bash
+
+#reinforce entropy
+python experiments.py \
+-exp_name reinforce_entropy \
+-optimizer adam \
+-optimizer_lr 3e-3 \
+-optimizer_v adam \
+-optimizer_lr_v 3e-3 \
+-computing_device cuda \
+-algorithm reinforce \
+-traces 5 \
+-traces_len 500 \
+-epochs 500 \
+-gamma 0.99 \
+-entropy \
+-entropy_factor 0.2 ;
+
+#ac_baseline entropy
+python experiments.py \
+-exp_name ac_baseline_entropy \
+-optimizer adam \
+-optimizer_lr 3e-3 \
+-optimizer_v adam \
+-optimizer_lr_v 3e-3 \
+-computing_device cuda \
+-algorithm reinforce \
+-traces 5 \
+-traces_len 500 \
+-epochs 500 \
+-gamma 0.99 \
+-baseline \
+-entropy \
+-entropy_factor 0.2 ;
+
+#ac_bootstrap entropy
+python experiments.py \
+-exp_name ac_bootstrap_entropy \
+-optimizer adam \
+-optimizer_lr 3e-3 \
+-optimizer_v adam \
+-optimizer_lr_v 3e-3 \
+-computing_device cuda \
+-algorithm AC_bootstrap \
+-traces 5 \
+-traces_len 500 \
+-epochs 500 \
+-depth 250 \
+-entropy \
+-entropy_factor 0.2 ;
+
+#ac_bootstrap_baseline entropy
+python experiments.py \
+-exp_name ac_bootstrap_baseline_entropy \
+-optimizer adam \
+-optimizer_lr 3e-3 \
+-optimizer_v adam \
+-optimizer_lr_v 3e-3 \
+-computing_device cuda \
+-algorithm AC_bootstrap \
+-traces 5 \
+-traces_len 500 \
+-epochs 500 \
+-depth 250 \
+-baseline \
+-entropy \
+-entropy_factor 0.2 ;
+
+#ac_bb with noise
+python experiments.py \
+-exp_name ac_noise_0.1 \
+-optimizer adam \
+-optimizer_lr 3e-3 \
+-optimizer_v adam \
+-optimizer_lr_v 3e-3 \
+-computing_device cuda \
+-algorithm AC_bootstrap \
+-traces 5 \
+-traces_len 500 \
+-epochs 500 \
+-depth 250 \
+-baseline \
+-entropy \
+-entropy_factor 0.2 ;
+
+#ac_bb_changes_in_gamma
+python experiments.py \
+-exp_name ac_bb_gamma_0.9 \
+-optimizer adam \
+-optimizer_lr 3e-3 \
+-optimizer_v adam \
+-optimizer_lr_v 3e-3 \
+-computing_device cuda \
+-algorithm AC_bootstrap \
+-traces 5 \
+-traces_len 500 \
+-epochs 500 \
+-depth 250 \
+-baseline \
+-gamma 0.9 \
+-entropy \
+-entropy_factor 0.2 ;
+
+#ac_bb_changin_learning_rate
+python experiments.py \
+-exp_name ac_bb_lr_0.002 \
+-optimizer adam \
+-optimizer_lr 2e-2 \
+-optimizer_v adam \
+-optimizer_lr_v 2e-2 \
+-computing_device cuda \
+-algorithm AC_bootstrap \
+-traces 5 \
+-traces_len 500 \
+-epochs 500 \
+-depth 250 \
+-baseline \
+-entropy \
+-entropy_factor 0.2 ;
+
+#ac_bb_changing_n_steps
+python experiments.py \
+-exp_name ac_bb_n100 \
+-optimizer adam \
+-optimizer_lr 2e-3 \
+-optimizer_v adam \
+-optimizer_lr_v 2e-3 \
+-computing_device cuda \
+-algorithm AC_bootstrap \
+-traces 5 \
+-traces_len 500 \
+-epochs 500 \
+-depth 100 ;
+
+
+#extra experimentation
+python cartpole_feature_sensitivity.py
+python cartpole_parameter_impact.py
+python cartpole_feature_ablation_study.py
+python cartpole_hyperparameter_optimization.py
+python cartpole_feature_ablation.py
+
+#Bonus Task
+python RL_A3_Bonus.py
