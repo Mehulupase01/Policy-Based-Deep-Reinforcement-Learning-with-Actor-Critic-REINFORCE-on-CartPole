@@ -90,7 +90,7 @@ The experiment results are plotted using **Matplotlib** to compare the learning 
 3. Plot Results: The re_plot.py file can be used to plot the learning curves and other performance metrics for each experiment.
 
 ## Conclusion:
-This project demonstrates the application of **Policy-Based Reinforcement Learning** algorithms, with a particular focus on the **Actor-Critic** method. The use of **entropy regularization**, **bootstrapping**, and **baseline subtraction** significantly improved the performance and stability of the agent in the **CartPole** environment. The combination of these techniques allowed for more stable learning and faster convergence, with **annealing ε-greedy** providing the best exploration-exploitation balance. The **Clip-PPO** and **CMA-ES** bonus tasks further improved policy updates, adding stability and robustness to the model.
+This project demonstrates the application of **Policy-Based Reinforcement Learning** algorithms, with a particular focus on the **Actor-Critic** method. The use of **entropy regularization**, **bootstrapping**, and **baseline subtraction** significantly improved the performance and stability of the agent in the **CartPole** environment. The combination of these techniques allowed for more stable learning and faster convergence, with **annealing ε-greedy** providing the best exploration-exploitation balance. The **Clip-PPO** and **CMA-ES** further improved policy updates, adding stability and robustness to the model.
 
 ## References:
 1. **OpenAI Gym**: [CartPole-v1](https://gym.openai.com/envs/CartPole-v1/)
